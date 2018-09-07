@@ -16,30 +16,30 @@ class PostController extends Controller
         // on recupere tous les posts de maniere decroissante pour avoir du plus recent en debut
         $posts= Post::latest();
         // $posts= $posts->whereMonth('created_at','6')->get();
-        // ici AUSSI A CE NIVEAU CA MARCHE PAS 
+        // ici AUSSI A CE NIVEAU CA MARCHE PAS
         
-        if(request('month')){
-            $posts->whereMonth('created_at','5');
-        }
-        // if($year =request('year') ){
-        //     $posts= $posts->whereYear('created_at',$year)->get();;
+        // if(request('month')){
+        //     $posts->whereMonth('created_at','5');
         // }
+        // if($year =request('year') ){
+        //  $posts= $posts->whereYear('created_at',$year)->get();;
+        //  }
 
          $posts=$posts->get();
          //JUSQUE LA
 
-        $archives= Post::selectRaw('year(created_at) year,
-         monthname(created_at)month,count(*) published')
-         ->groupBy('year','month')
-         ->orderByRaw('min(created_at) desc')
-         ->get()
-         ->toArray(); 
+        // $archives= Post::selectRaw('year(created_at) year,
+        //  monthname(created_at)month,count(*) published')
+        //  ->groupBy('year','month')
+        //  ->orderByRaw('min(created_at) desc')
+        //  ->get()
+        //  ->toArray(); 
    
-        return view('posts.index',compact('posts','archives'));
+        return view('posts.index',compact('posts'));
     }
     public function show($post){
         $posts = Post::find($post);
-        // dd($posts);
+      
 
         return view('posts.show',compact('posts'));
     }
@@ -66,7 +66,7 @@ class PostController extends Controller
         new Post(request(['title','content']))
     );
       
-    Flashy::success('utilisateur creer avec succes!');
+    // Flashy::success('utilisateur creer avec succes!');
         return redirect('/posts');
     }
 }

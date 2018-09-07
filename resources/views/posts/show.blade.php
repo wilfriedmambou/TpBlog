@@ -13,7 +13,7 @@
          <strong> 
     {{$comment->created_at->diffForHumans()}} &nbsp;
         </strong>
-            {{$comment->content}}
+            {{ $comment->content}}
     </li>
 </ul>
         
