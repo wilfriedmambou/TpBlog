@@ -16,6 +16,7 @@ class PostController extends Controller
         // on recupere tous les posts de maniere decroissante pour avoir du plus recent en debut
         $posts= Post::latest();
         // $posts= $posts->whereMonth('created_at','6')->get();
+        // ici AUSSI A CE NIVEAU CA MARCHE PAS 
         
         if(request('month')){
             $posts->whereMonth('created_at','5');
@@ -25,6 +26,7 @@ class PostController extends Controller
         // }
 
          $posts=$posts->get();
+         //JUSQUE LA
 
         $archives= Post::selectRaw('year(created_at) year,
          monthname(created_at)month,count(*) published')
