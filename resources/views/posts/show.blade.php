@@ -8,19 +8,30 @@
 
 <div class="comments">
     @foreach ($posts->comment as $comment)
+    {{-- @foreach($posts as $post ) --}}
     <ul class="list-group">
     <li class="list-group-item">
+            {{$comment->created_at->diffForHumans()}} &nbsp;
+        <p>
          <strong> 
-    {{$comment->created_at->diffForHumans()}} &nbsp;
-        </strong>
-            {{ $comment->content}}
+           
+               {{$posts->user->name}}
+        
+         </strong> :
+         {{ $comment->content}}
+    
+        
+    </p>
+            
     </li>
 </ul>
-        
+        {{-- @endforeach --}}
     @endforeach
 </div>
 {{-- ajouter un commentaire sur mes articles --}}
 <hr>
+@if(Auth::check())
+
 <div class="card">
     <div class="card-block">
          <form method="POST"action="/posts/{{$posts->id}}/comments"> 
@@ -37,6 +48,17 @@
     </div>
 
 </div>
+ 
+ @endif
+ @if(!Auth::check())
+ <div class="card">
+     <div class="card-block btn btn-danger">
+         Connectez vous pour pouvoir faire un commentaire et et profiter de 
+         toutes les option du forum
+     </div>
+ </div>
+ @endif
+{{-- {{$comment}} --}}
 {{-- @endif  --}}
 @endsection 
 

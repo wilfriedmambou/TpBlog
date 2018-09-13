@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use Carbon\Carbon;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -39,9 +40,16 @@ class PostController extends Controller
     }
     public function show($post){
         $posts = Post::find($post);
-      
+        // $posts2 = Post::where('','')
+        // $posts2= App\User::with(['posts' => function ($query) {
+        //     $query->where('title', 'like', '%first%');
+        // }])->get();
+        // $comments=$posts->comment;
+        // $AllUser= Post::all();
+        // $list = User::with('post','comment')->paginate(1);
+        // $comments = $post->comment()->with('user')->get();
 
-        return view('posts.show',compact('posts'));
+        return view('posts.show',compact('posts','comments'));
     }
     public function create(){
         
@@ -65,6 +73,9 @@ class PostController extends Controller
     auth()->user()->publish(
         new Post(request(['title','content']))
     );
+   
+ 
+
       
     // Flashy::success('utilisateur creer avec succes!');
         return redirect('/posts');

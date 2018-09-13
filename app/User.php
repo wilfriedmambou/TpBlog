@@ -20,7 +20,7 @@ class User extends Authenticatable
         // commentaires je donne le chemain vers le modele commentaire
         /*et en second argument je passe ma cle etrangere */
     public function comment (){
-        return $this->hasMany('App\Comments','comment_id');
+        return $this->hasMany('App\Comments','id');
     }
     public function post (){
         return $this->hasMany('App\Post');
