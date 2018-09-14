@@ -27,6 +27,9 @@ Route::get('/logout','RegistrationController@destroy');
 Route::post('/register','RegistrationController@store');
 Route::get('/login','SessionsController@create');
 Route::post('/login','SessionsController@store');
+Route::get('/user/{user}/edit','UserController@edit');
+Route::post('/user/{user}/edit',['as'=> 'user.edit','uses'=>'UserController@update'])->where('user','[0-9]+');;
+
 // Route::get('/logout','SessionsController@destroy');
 
 

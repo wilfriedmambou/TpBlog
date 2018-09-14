@@ -40,6 +40,8 @@ class PostController extends Controller
     }
     public function show($post){
         $posts = Post::find($post);
+        $user = User::find($post);
+
         // $posts2 = Post::where('','')
         // $posts2= App\User::with(['posts' => function ($query) {
         //     $query->where('title', 'like', '%first%');
@@ -49,7 +51,7 @@ class PostController extends Controller
         // $list = User::with('post','comment')->paginate(1);
         // $comments = $post->comment()->with('user')->get();
 
-        return view('posts.show',compact('posts','comments'));
+        return view('posts.show',compact('posts','user'));
     }
     public function create(){
         

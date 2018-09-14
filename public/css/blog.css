@@ -164,3 +164,68 @@ h6,
 .blog-footer p:last-child {
     margin-bottom: 0;
 }
+/* .more:hover {
+    color: blue;
+    /* margin-left: 1px;
+    margin-bottom: 1px; */
+
+    /* scale: (1,2); */
+/* } */ */
+.more {
+   
+    margin-right: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px
+    
+}
+.dropdown-menu-right{
+    margin-top :-21px;
+    position: relative;
+    margin-right: 100px;
+}
+.cat{
+    margin-top :-21px;
+    
+    margin-right: 100px;
+}
+.blog-post{
+    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+}
+.title-article{
+text-align: center;
+margin: 0 auto;
+}
+.blog-post-meta{
+   
+    
+}
+.user-name{
+    text-align: center;
+    margin: 0 auto;
+    font-size: 12px;
+}
+.slide{
+   
+    height: 450px;
+    margin-bottom: 50px;
+    width: -300px;
+    margin-left: 30px;
+    margin-right: 30px;
+
+ 
+   
+}
+.img-posts{
+    height: 150px;
+    width: 350px;
+    margin-bottom:15px; 
+}
+.post-content{
+    margin: 0 auto;
+    padding-right: 5px;
+    padding-left:10px;
+    padding: 0 auto;
+}
+.infos-post{
+    height: 250px;
+}

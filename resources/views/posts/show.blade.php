@@ -1,4 +1,5 @@
- @extends('default')
+
+@extends('default')
 @section('content')
 {{-- @if($posts) --}}
 <h1> {{ $posts->title}}</h1>
@@ -7,6 +8,7 @@
 <hr>
 
 <div class="comments">
+    {{-- @if($posts->hasComments()) --}}
     @foreach ($posts->comment as $comment)
     {{-- @foreach($posts as $post ) --}}
     <ul class="list-group">
@@ -14,9 +16,9 @@
             {{$comment->created_at->diffForHumans()}} &nbsp;
         <p>
          <strong> 
-           
-               {{$posts->user->name}}
         
+               {{$comment->user->name ? : ''}}
+              
          </strong> :
          {{ $comment->content}}
     
@@ -27,6 +29,7 @@
 </ul>
         {{-- @endforeach --}}
     @endforeach
+    {{-- @endif --}}
 </div>
 {{-- ajouter un commentaire sur mes articles --}}
 <hr>

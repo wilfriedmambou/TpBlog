@@ -9,15 +9,16 @@
             {{-- je verifi si l'utilisateur est authentifie si oui jaffiche son nom si non je n'
             affiche rien  --}}
             @if(Auth::check())
-            <a class="nav-link ml-auto" href="#">{{Auth::user()->name}}</a>
+            <a class="nav-link ml-auto" href="/user/{{Auth::user()->id}}/edit">{{Auth::user()->name}}</a>
             @endif
- 
+         
           </nav>
         </div>
       </div>
       <div class="blog-header">
             <div class="container">
-              <h1 class="blog-title">Wilfried First Blog</h1>
+              <h1 class="blog-title" style="text-align: center;">They Blog</h1> 
+              
               {{-- <p class="lead blog-description">An example blog template built with Bootstrap.</p> --}}
             </div>
           </div>
