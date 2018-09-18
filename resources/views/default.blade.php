@@ -36,6 +36,9 @@
           </div>
           <div> @include('layout.sidebar')</div>
         </div>
+        <div class="row container-fluid">
+          @yield('post')
+        </div>
 </div>
 @include ('flashy::message')
 <script src="//code.jquery.com/jquery.js"></script>

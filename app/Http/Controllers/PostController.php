@@ -36,7 +36,7 @@ class PostController extends Controller
         //  ->get()
         //  ->toArray(); 
    
-        return view('posts.index',compact('posts'));
+        return view('defaultSansBoot',compact('posts'));
     }
     public function show($post){
         $posts = Post::find($post);

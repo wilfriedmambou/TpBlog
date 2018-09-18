@@ -1,4 +1,4 @@
-/*
+/* 
  * Globals
  */
 
@@ -138,16 +138,17 @@ h6,
    * Blog posts
    */
 
-.blog-post {
+/* .blog-post {
     margin-bottom: 4rem;
-}
+} */
 .blog-post-title {
     margin-bottom: 0.25rem;
     font-size: 2.5rem;
 }
 .blog-post-meta {
-    margin-bottom: 1.25rem;
+    /* margin-bottom: 1.25rem;
     color: #999;
+    display: block; */
 }
 
 /*
@@ -171,11 +172,17 @@ h6,
 
     /* scale: (1,2); */
 /* } */ */
-.more {
+#more2 {
    
-    margin-right: 0px;
+    /* margin-right: 0px;
     padding-bottom: 0px;
-    padding-right: 0px
+    padding-right: 0px; */
+    display:block; 
+    /* float: left; */
+    margin-right: 5px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
     
 }
 .dropdown-menu-right{
@@ -195,10 +202,11 @@ h6,
 text-align: center;
 margin: 0 auto;
 }
-.blog-post-meta{
+/* .blog-post{
    
-    
-}
+    width: 330px;
+    border-radius: 5px 5px 5px 5px; 
+} */
 .user-name{
     text-align: center;
     margin: 0 auto;
@@ -220,12 +228,21 @@ margin: 0 auto;
     width: 350px;
     margin-bottom:15px; 
 }
-.post-content{
+/* .post-content{
     margin: 0 auto;
     padding-right: 5px;
     padding-left:10px;
     padding: 0 auto;
-}
+} */
 .infos-post{
     height: 250px;
+   
+}
+.bloc-post:hover{
+    
+    transform: scale(1.1);
+
+}
+.user-name{
+    display: block;
 }
