@@ -9,6 +9,7 @@
     <link rel="icon" href="../../favicon.ico">
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet'>
+<link rel="stylesheet" href="../../../css/index.css" media="all">
 
     <title>Blog Template for Bootstrap</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -21,18 +22,16 @@
   </head>
 
   <body>
-@include('layout.head1')
-<div class="container">
+      @include('layout.headerSansBoot')
+
+<div class="container cont">
 
         <div class="row">
   
           <div class="col-sm-8 blog-main">
    
 @yield('content')
-<nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-</nav>
+
           </div>
           <div> @include('layout.sidebar')</div>
         </div>

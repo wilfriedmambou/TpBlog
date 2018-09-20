@@ -15,7 +15,7 @@ class PostController extends Controller
     }
     public function index(Request $request){
         // on recupere tous les posts de maniere decroissante pour avoir du plus recent en debut
-        $posts= Post::latest();
+        $posts= Post::latest()->paginate(3);
         // $posts= $posts->whereMonth('created_at','6')->get();
         // ici AUSSI A CE NIVEAU CA MARCHE PAS
         
@@ -26,7 +26,7 @@ class PostController extends Controller
         //  $posts= $posts->whereYear('created_at',$year)->get();;
         //  }
 
-         $posts=$posts->get();
+        //  $posts=$posts->get();
          //JUSQUE LA
 
         // $archives= Post::selectRaw('year(created_at) year,

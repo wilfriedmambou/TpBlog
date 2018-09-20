@@ -2,11 +2,13 @@
 @extends('default')
 @section('content')
 {{-- @if($posts) --}}
+<img src='../../../images/{{$posts->id}}.jpg' alt="" class="img-post">
+<div class="infoPost">
 <h1> {{ $posts->title}}</h1>
 
 <div class="for-group">{{$posts->content}}  </div>
 <hr>
-
+</div>
 <div class="comments">
     {{-- @if($posts->hasComments()) --}}
     @foreach ($posts->comment as $comment)
@@ -35,7 +37,7 @@
 <hr>
 @if(Auth::check())
 
-<div class="card">
+
     <div class="card-block">
          <form method="POST"action="/posts/{{$posts->id}}/comments"> 
              {{ csrf_field() }}
@@ -48,13 +50,13 @@
              
         </form> 
         @include('layout.errors')
-    </div>
+    
 
 </div>
  
  @endif
  @if(!Auth::check())
- <div class="card">
+ <div class="car">
      <div class="card-block btn btn-danger">
          Connectez vous pour pouvoir faire un commentaire et et profiter de 
          toutes les option du forum

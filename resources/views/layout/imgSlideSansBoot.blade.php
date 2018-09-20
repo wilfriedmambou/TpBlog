@@ -3,8 +3,8 @@
  <section id='wrapper-registration-logo'>
   {{-- <img src=url(https://www.afrikhealth.com/fungry/img/fungry-logo.png)  width=152 height=52 class='logo' /> --}}
   <div class='registration-area'>
-   <span class='button' id='sign-in'>SIGN IN</span>
-   <span class='button'>REGISTER</span>
+   {{-- <span class='button' id='sign-in'>SIGN IN</span>
+   <span class='button'>REGISTER</span> --}}
    {{-- <img src='icons/panier.png' width=42 height=42 class='panier' /> --}}
   </div>
  </section>
