@@ -4,9 +4,12 @@
 {{-- @if($posts) --}}
 <img src='../../../images/{{$posts->id}}.jpg' alt="" class="img-post">
 <div class="infoPost">
-<h1> {{ $posts->title}}</h1>
+<h3> {{ $posts->title}}</h3>
 
 <div class="for-group">{{$posts->content}}  </div>
+&nbsp;
+<div class='card-second-text'> Par {{$posts->user->name}} on 
+        {{$posts->created_at->toFormattedDateString()}}</div>
 <hr>
 </div>
 <div class="comments">

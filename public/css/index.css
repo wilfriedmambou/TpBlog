@@ -51,7 +51,7 @@ body {
 .registration-area {
     float: right;
 }
-.button {
+.button,.button-register {
     display: inline-block;
     padding: 15px;
     background: var(--primary-theme-color);
@@ -65,25 +65,24 @@ body {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
 }
-.button-logOut{
-    /* display: inline-block; */
+.button-logOut {
+    display: inline-block;
     padding: 15px;
     background: var(--primary-theme-color);
     text-align: center;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     color: #ffffff;
     font-size: 0.9rem;
-    margin-left: 200px;
-    margin-right: 35px;
+    margin-left: 100px;
+    /* margin-right: 35px; */
     cursor: pointer;
     transition: color ease 0.2s, background ease 0.2s;
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-   
 }
-.button-logOut:hover{
-    color:var(--secondary-theme-color);
-    background:#ffffff;
+.button-logOut:hover,.button-register:hover {
+    color: var(--secondary-theme-color);
+    background: #ffffff;
 }
 #sign-in {
     background: #ffffff;
@@ -266,20 +265,23 @@ footer {
     background-repeat: no-repeat !important;
 }
 .card-cotent {
-    margin-top: 750px;
+    margin-top: 15px;
     /* height: 600px; */
-    background-color: #f5f5f5;
+   
     /* padding-left: 5px;
     padding-top: 25px;
    padding-right: 25px; */
-    display: flex;
+    display:flex;
     /* grid-template-columns: auto auto auto auto; */
-    /* margin-left: 10px;
+    margin-left: 10px;
     margin-bottom: 50px;
-    margin-right: 10px; */
+    margin-right: 10px; 
     flex-wrap: wrap;
-    margin-right: 25px;
-    margin-left: 25px;
+    /* margin-right: 25px;
+    margin-left: 25px; */
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 100px;
 }
 .card:hover {
     cursor: pointer;
@@ -299,9 +301,9 @@ a:link {
     background: #ffffff;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     position: relative;
-    display: inline-block;
+    display: flex;
     height: 400px;
-    margin: 5px;
+    margin: 15px;
 }
 .card-bg {
     height: 200px;
@@ -360,14 +362,16 @@ a:link {
     /* grid-row: 1/ 5;
     grid-column:4/5;  
     width: 250px;
-    margin-left:15px;
+
     margin-right: -45px; 
     padding: 25px;
     margin-bottom:50px; */
     /* box-shadow: -2px 9px 24px -4px rgba(0, 0, 0, 0.75); */
     /* padding-right: 15px; */
-    flex: 25%;
+    flex: 20%;
     padding: 20px;
+    /* margin-right: -15px; */
+    /* margin-left:25px; */
 }
 .blog-footer {
     padding: 2.5rem 0;
@@ -386,34 +390,51 @@ a:link {
 }
 /* zonne contenant toutes les cards */
 .card1 {
-    flex: 75%;
+    flex: 80%;
     padding-left: 15px;
-
     flex-direction: row;
     display: flex;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    
 }
 @media screen and (max-width: 700px) {
-     .card1{   
+    .card1 {
         flex-direction: column;
         margin-top: 130px;
-        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+        
     }
+   
 }
-.cont{
-    margin-top:100px;
+.cont {
+    margin-top: 100px;
 }
-.img-post{
+.img-post {
     width: 100%;
     margin: auto;
     background-position: center;
     background-size: cover;
     position: absolute;
     height: 420px;
-
 }
-.comments{
-
+.comments {
 }
-.infoPost{
-    margin-top:450px;
+.infoPost {
+    margin-top: 450px;
+}
+.img-card {
+    overflow: hidden;
+    height: 180px;
+    width: 280px;
+    margin-bottom: 15px;
+}
+.footer{
+    height: 350px;
+    background-color: #424242;
 }

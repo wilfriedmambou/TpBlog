@@ -5,6 +5,7 @@ use App\Post;
 use App\User;
 use Carbon\Carbon;
 use Auth;
+use App\Category;
 
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class PostController extends Controller
     }
     public function index(Request $request){
         // on recupere tous les posts de maniere decroissante pour avoir du plus recent en debut
-        $posts= Post::latest()->paginate(3);
+        $posts= Post::latest()->paginate(4);
         // $posts= $posts->whereMonth('created_at','6')->get();
         // ici AUSSI A CE NIVEAU CA MARCHE PAS
         
@@ -54,9 +55,11 @@ class PostController extends Controller
         return view('posts.show',compact('posts','user'));
     }
     public function create(){
+        $categories = Category::all();
+
         
 
-        return view('posts.create');
+        return view('posts.create',compact('categories'));
     }
     public function store(Request $request){
  $this->validate(request(),[
@@ -72,9 +75,27 @@ class PostController extends Controller
     //    'user_id'=>auth()->id() ]);
 
     // methode utilisan le modele  
-    auth()->user()->publish(
-        new Post(request(['title','content']))
-    );
+    // auth()->user()->publish(
+    //     new Post(request(['title','content','category_id']))
+    // );
+    $posts=Post::with('category')->find(1)
+    // ->where('category_id',request('value'))
+    ->get();
+    // 
+    foreach ($posts as $post) {
+        //  dd($post->category->id); 
+        // echo $book->author->name;
+        Post::create([
+                'title'=>request('title'),
+                 'content'=>request('content'),
+                 'user_id'=>auth()->id(),
+                 'category_id'=>($post->category->id)
+                 ]);
+       
+    }
+   
+         
+
    
  
 

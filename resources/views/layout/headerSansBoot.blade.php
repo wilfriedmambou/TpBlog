@@ -3,13 +3,13 @@
     {{-- <span class='button button-search' id='button-search'>SEE RESTAURANTS</span>  --}}
     <div class='registration-area'>  
         @if(!Auth::check())  
-      <span class='button' id='sign-in'>SIGN IN</span>
-      <span class='button'>REGISTER</span>
+      <a class='button'href="/login" id='sign-in'>SIGN IN</a>
+      <a class='button-register' href="/register" >REGISTER</a>
       @endif
       <span>  @if(Auth::check())
-            <a class="nav-link ml-auto" href="/user/{{Auth::user()->id}}/edit">{{Auth::user()->name}}</a>
+            <a class="" href="/user/{{Auth::user()->id}}/edit">{{Auth::user()->name}}</a>
           
-            <span class='button-logOut'>LOGOUT</span>    
+            <a class='button-logOut' href= "/logout">LOGOUT</a>    
             @endif </span>
      </div>
 </header>

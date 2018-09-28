@@ -40,8 +40,8 @@ public function store(Request $request){
             $message = 'CONNECTION EFFECTUER AVEC SUCCES';
             // -with(session()->flash('message', $message));
             Session::flash('success',$message);
-         return view ('posts.test');
-        // }
+         return redirect()->home();
+    // }
      } else {
          return back()->withErrors([ 'message'=>'SVP verifiez vos champs et reessayez' ]);
     }

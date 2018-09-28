@@ -26,13 +26,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
     public function publish(Post $post){
-    //        Post::create([
-    //   'title'=>request('title'),
-    //    'content'=>request('content'),
-    //    'user_id'=>auth()->id() ]);
+           Post::create([
+      'title'=>request('title'),
+       'content'=>request('content'),
+       'user_id'=>auth()->id(),
+       'category_id'=> $post->categories->i
+       ]);
+       
 
     // autre methode comme user et post on une relation 
-    $this->post()->save($post);
+    // $this->post()->save($post);
 
     }
 
