@@ -78,21 +78,21 @@ class PostController extends Controller
     // auth()->user()->publish(
     //     new Post(request(['title','content','category_id']))
     // );
-    $posts=Post::with('category')->find(1)
-    // ->where('category_id',request('value'))
-    ->get();
+    // $posts=Post::with('category')->find(1)
+    // // ->where('category_id',request('value'))
+    // ->get();
     // 
-    foreach ($posts as $post) {
+    // foreach ($posts as $post) {
         //  dd($post->category->id); 
         // echo $book->author->name;
         Post::create([
                 'title'=>request('title'),
                  'content'=>request('content'),
                  'user_id'=>auth()->id(),
-                 'category_id'=>($post->category->id)
+                 'category_id'=>1
                  ]);
        
-    }
+    // }
    
          
 
