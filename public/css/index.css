@@ -51,10 +51,10 @@ body {
 .registration-area {
     float: right;
 }
-.button,.button-register {
+.button-register{
     display: inline-block;
     padding: 15px;
-    background: var(--primary-theme-color);
+    background: #aa00ff;
     text-align: center;
     box-sizing: border-box;
     color: #ffffff;
@@ -68,10 +68,10 @@ body {
 .button-logOut {
     display: inline-block;
     padding: 15px;
-    background: var(--primary-theme-color);
+    background:var(--primary-theme-color);
     text-align: center;
     box-sizing: border-box;
-    color: #ffffff;
+    /* color: #ffffff; */
     font-size: 0.9rem;
     margin-left: 100px;
     /* margin-right: 35px; */
@@ -80,18 +80,36 @@ body {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
 }
-.button-logOut:hover,.button-register:hover {
-    color: var(--secondary-theme-color);
+.button-logOut:hover,.button-register:hover{
+    /* color: var(--secondary-theme-color); */
     background: #ffffff;
 }
 #sign-in {
-    background: #ffffff;
-    color: var(--secondary-theme-color);
+    /* background: #ffffff; */
+    /* color: var(--primary-theme-color); */
     transition: color ease 0.2s, background ease 0.2s;
+    display: inline-block;
+    padding: 15px;
+    /* background: var(--secondary-theme-color); */
+    text-align: center;
+    box-sizing: border-box;
+    /* color: #ffffff; */
+    font-size: 0.9rem;
+    margin-left: 100px;
+    /* margin-right: 35px; */
+    cursor: pointer;
+    transition: color ease 0.2s, background ease 0.2s;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
 }
 #sign-in:hover {
-    color: #ffffff;
-    background: var(--primary-theme-color);
+    /* color: #ffffff; */
+     background: 
+     #aa00ff; 
+}
+.button-register:hover{
+    background: ;
+    transition: color ease 0.2s, background ease 0.2s;
 }
 /* .panier{
    margin-left:15px !important;
