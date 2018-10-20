@@ -40,10 +40,20 @@ public function store(Request $request){
             $message = 'CONNECTION EFFECTUER AVEC SUCCES';
             // -with(session()->flash('message', $message));
             Session::flash('success',$message);
-         return redirect()->home();
+        //  return redirect()->home();
+        $msg = array(
+            "statut"=>"succes",
+             "message"=>"utilisateur connecte avec success"
+        );
+        return response()->json($msg);
     // }
      } else {
-         return back()->withErrors([ 'message'=>'SVP verifiez vos champs et reessayez' ]);
+        //  return back()->withErrors([ 'message'=>'SVP verifiez vos champs et reessayez' ]);
+        $msg = array(
+            "statut"=>"Echec",
+             "message"=>'SVP verifiez vos champs et reessayez'
+        );
+        return response()->json($msg);
     }
    }
    

@@ -40,6 +40,7 @@
         </div>
 </div>
 @include ('flashy::message')
+<script src="../../../js/connectionAjax.js"></script>
 <script src="//code.jquery.com/jquery.js"></script>
    @include('layout.footer')
   </body>
