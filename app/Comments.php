@@ -15,13 +15,6 @@ class Comments extends Model
    public function user (){
     return $this->belongsTo('App\User');
 }
-public function isPublished(){
-    return $this->published === 1;
 
-}
-public function isDeleted(){
-    return $this->delete === 1;
-
-}
 
 }

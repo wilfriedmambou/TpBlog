@@ -25,6 +25,12 @@ class User extends Authenticatable
     public function post (){
         return $this->hasMany('App\Post');
     }
+    public function roles()
+    {
+        return $this
+            ->belongsToMany('App\Role')
+            ->withTimestamps();
+    }
     public function publish(Post $post){
            Post::create([
       'title'=>request('title'),
@@ -47,4 +53,39 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+
+
+    // nouvelle methode 
+    public function authorizeRoles($roles)
+{
+  if ($this->hasAnyRole($roles)) {
+    return true;
+  }
+  abort(401, 'This action is unauthorized.');
+}
+public function hasAnyRole($roles)
+{
+  if (is_array($roles)) {
+    foreach ($roles as $role) {
+      if ($this->hasRole($role)) {
+        return true;
+      }
+    }
+  } else {
+    if ($this->hasRole($roles)) {
+      return true;
+    }
+  }
+  return false;
+}
+public function hasRole($role)
+{
+  if ($this->roles()->where('name', $role)->first()) {
+    return true;
+  }
+  return false;
+}
 }

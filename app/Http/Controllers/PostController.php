@@ -17,6 +17,8 @@ class PostController extends Controller
     public function index(Request $request){
         // on recupere tous les posts de maniere decroissante pour avoir du plus recent en debut
         $posts= Post::latest()->paginate(4);
+        // $post = new Post;
+        //  dd($post->hasComments());
         // $posts= $posts->whereMonth('created_at','6')->get();
         // ici AUSSI A CE NIVEAU CA MARCHE PAS
         

@@ -13,7 +13,7 @@
 <hr>
 </div>
 <div class="comments">
-    {{-- @if($posts->hasComments()) --}}
+     @if($posts->hasComments()) 
     @foreach ($posts->comment as $comment)
     {{-- @foreach($posts as $post ) --}}
     <ul class="list-group">
@@ -34,7 +34,7 @@
 </ul>
         {{-- @endforeach --}}
     @endforeach
-    {{-- @endif --}}
+ @endif
 </div>
 {{-- ajouter un commentaire sur mes articles --}}
 <hr>

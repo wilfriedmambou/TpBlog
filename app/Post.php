@@ -19,12 +19,19 @@ class Post extends Model
     {
        return $this->belongsTo('App\Category');
    } 
-    // public function hasComments(){
-   
-    //     $hascom = Post::all();
-    //     foreach($hascom->comment as $com){
-    //        $numb = $com->count();
-    //     }
+    public function hasComments(){
+//    $post=  new Post;
+
+//    $post = Post::where('comment','')->count() ;
+// ->where('user_id', auth()->id())
+// $user= Post::user->id;
+
+   $comment=Post::comment()->count() > 0;
+//    return $post;
+
+
+return $comment;
+    }
     // if ( $numb > 1){
     //     return $this->comments()===1;
     // }
@@ -32,5 +39,12 @@ class Post extends Model
        
     
     // }
+public function isPublished(){
+    return $this->published === 1;
 
+}
+public function isDeleted(){
+    return $this->delete === 1;
+
+}
 }

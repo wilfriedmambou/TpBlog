@@ -33,6 +33,22 @@ Route::post('/user/{user}/edit',['as'=> 'user.edit','uses'=>'UserController@upda
 // Route::get('/logout','SessionsController@destroy');
 
 
+// les admins chemin 
+// Route::group(['prefix' =>'admin','middleware'=>'CheckRole'],'SessionsController@store');  
+Route::get('/admin1', 'AdminController@index');
+
+Route::get('/superadmin', 'SuperAdminController@index');
+Route::get('/edit','AdminController@editer');
+// tag route
+Route::get('/tag',function(){ 
+return view('admin.tag.tag');
+});
+Route::get('/category',function(){ 
+    return view('admin.category.category');
+    });
+     
+
+
 
 
 
