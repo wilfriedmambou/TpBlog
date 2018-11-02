@@ -37,17 +37,18 @@ Route::post('/user/{user}/edit',['as'=> 'user.edit','uses'=>'UserController@upda
 // Route::group(['prefix' =>'admin','middleware'=>'CheckRole'],'SessionsController@store');  
 Route::get('/admin1', 'AdminController@index');
 
-Route::get('/superadmin', 'SuperAdminController@index');
+// Route::get('/superadmin', 'SuperAdminController@index');
 Route::get('/edit','AdminController@editer');
-// tag route
-Route::get('/tag',function(){ 
-return view('admin.tag.tag');
-});
-Route::get('/category',function(){ 
-    return view('admin.category.category');
-    });
+// // tag route
+// Route::get('/tag',function(){ 
+// return view('admin.tag.tag');
+// });
+// Route::get('/category',function(){ 
+//     return view('admin.category.category');
+//     });
      
-
+// ici je vais utiliser les ressources pour mapper mes routes en toute securite et en toute facilite 
+Route::resource('admin/post1','Admin\Postcontroller');
 
 
 
