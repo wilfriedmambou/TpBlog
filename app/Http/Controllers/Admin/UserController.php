@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Post;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.show');
+        return view('admin.user.show');
     }
 
     /**
@@ -25,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.post');
+        return view('admin.user.create');
     }
 
     /**
@@ -36,23 +35,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate(request(),[
-            'title'=>'required',
-            'body'=>'required',
-            'slug'=>'required',
-            
-             ]);
-             
-             Post::create([
-                'title'=>request('title'),
-                 'content'=>request('body'),
-                 'user_id'=>auth()->id(),
-                 'slug'=>request('slug'),
-                //  'category_id'=>1
-                 ]);
-
-                 return redirect(route('post.index'));
-       
+        //
     }
 
     /**
@@ -63,7 +46,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return post;
+        //
     }
 
     /**
@@ -100,4 +83,3 @@ class PostController extends Controller
         //
     }
 }
-

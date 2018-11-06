@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/posts','PostController@index')->name('home');  //la page des articles 
+Route::get('/','PostController@index')->name('home');  //la page des articles 
 // page pour afficher chaque article grate a  son id 
 Route::get('posts/{post}','PostController@show')->where('post','[0-9]+');
 // page de modification de articles grace a leurs ids
@@ -23,7 +23,7 @@ Route::post('/posts/{post}/comments','CommentsController@store');
 
 
 Route::get('/register','RegistrationController@create');
-Route::get('/logout','RegistrationController@destroy');
+Route::get('/logout','RegistrationController@destroy'); 
 Route::post('/register','RegistrationController@store');
 Route::get('/login','SessionsController@create');
 Route::post('/login','SessionsController@store');
@@ -32,23 +32,17 @@ Route::post('/user/{user}/edit',['as'=> 'user.edit','uses'=>'UserController@upda
 
 // Route::get('/logout','SessionsController@destroy');
 
-
-// les admins chemin 
-// Route::group(['prefix' =>'admin','middleware'=>'CheckRole'],'SessionsController@store');  
-Route::get('/admin1', 'AdminController@index');
-
-// Route::get('/superadmin', 'SuperAdminController@index');
-Route::get('/edit','AdminController@editer');
-// // tag route
-// Route::get('/tag',function(){ 
-// return view('admin.tag.tag');
-// });
-// Route::get('/category',function(){ 
-//     return view('admin.category.category');
-//     });
      
 // ici je vais utiliser les ressources pour mapper mes routes en toute securite et en toute facilite 
-Route::resource('admin/post1','Admin\Postcontroller');
+Route::group(['namespace'=>'Admin'],function(){
+
+    Route::resource('admin/post','PostController');
+    Route::resource('admin/tag','TagController');
+    Route::resource('admin/category','CategoryController');
+    Route::resource('admin/user','UserController');
+    // Route::resource('admin/user/cre','UserController');
+
+});
 
 
 

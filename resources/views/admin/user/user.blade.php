@@ -25,11 +25,9 @@
             <div class="box-header with-border">
               <h3 class="box-title">Titre</h3>
             </div>
-            @include('layout.errors')
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{route('post.index')}}" method ="post">
-                {{csrf_field()}}
+            <form role="form">
               <div class="box-body">
                  
                   <div class="col-lg-6">
@@ -79,10 +77,10 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body pad">
-            
+              <form>
                 <textarea class="textarea" placeholder="Place some text here"
                           style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="body"></textarea>
-          
+              </form>
             </div>
           </div>
 

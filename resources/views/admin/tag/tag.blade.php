@@ -1,5 +1,6 @@
 @extends('admin.layout.app')
 @section('content')
+@include('layout.errors')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -25,9 +26,12 @@
             <div class="box-header with-border">
               <h3 class="box-title">Titre</h3>
             </div>
+            @include('layout.errors')
+
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+          <form role="form" method="post" action="{{route('tag.store')}}">
+                {{ csrf_field() }}
               <div class="box-body">
                  
                   <div class="col-lg-offset-3 col-lg-6">

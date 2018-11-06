@@ -14,7 +14,6 @@
         <li class="active">Editors</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -25,9 +24,11 @@
             <div class="box-header with-border">
               <h3 class="box-title">Titre</h3>
             </div>
+            @include('layout.errors')
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="post" action="{{route('category.store')}}">
+                {{ csrf_field() }}
               <div class="box-body">
                  
                   <div class="col-lg-offset-3 col-lg-6">

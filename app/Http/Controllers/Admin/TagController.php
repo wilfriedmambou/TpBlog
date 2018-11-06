@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Post;
+use App\tag;
 
-class PostController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.show');
+        return view('admin.tag.create.show');
     }
 
     /**
@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.post');
+        return view('admin.tag.tag');
     }
 
     /**
@@ -37,22 +37,18 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(),[
-            'title'=>'required',
-            'body'=>'required',
             'slug'=>'required',
+            'name'=>'required',
+            // 'slug'=>'required',
             
              ]);
              
-             Post::create([
-                'title'=>request('title'),
-                 'content'=>request('body'),
-                 'user_id'=>auth()->id(),
+             tag::create([
+                'name'=>request('name'),
                  'slug'=>request('slug'),
                 //  'category_id'=>1
                  ]);
-
-                 return redirect(route('post.index'));
-       
+        return redirect(route('tag.index'));
     }
 
     /**
@@ -63,7 +59,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return post;
+        //
     }
 
     /**
@@ -100,4 +96,3 @@ class PostController extends Controller
         //
     }
 }
-

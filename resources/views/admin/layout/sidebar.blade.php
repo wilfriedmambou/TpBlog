@@ -7,7 +7,7 @@
         <div class="pull-left image">
           <img src="{{URL::asset("admin/dist/img/user2-160x160.jpg")}}" class="img-circle" alt="User Image">
         </div>
-        <div class="pull-left info">
+        <div class="pull-left info"> 
           <p>Wilfried Mambou</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -30,10 +30,10 @@
         <li class="active treeview">
         
           <ul class="treeview-menu">
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> post</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> Categories</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>Tags</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>User</a></li>
+            <li class=""><a href="{{route('post.index')}}"><i class="fa fa-circle-o"></i> post</a></li>
+            <li class=""><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Categories</a></li>
+            <li class=""><a href="{{route('tag.index')}}"><i class="fa fa-circle-o"></i>Tags</a></li>
+            <li class=""><a href="{{route('user.index')}}"><i class="fa fa-circle-o"></i>User</a></li>
           
           </ul>
     
