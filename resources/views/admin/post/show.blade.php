@@ -1,4 +1,7 @@
 @extends('admin/layout/app')
+@section('head')
+<link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+@endsection  
 @section('content')
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
@@ -21,7 +24,8 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+          <h3 class="box-title">Post</h3>
+          <a class="col-lg-offset-5 btn btn-success"href="{{route('post.create')}}">add New </a>  
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -32,7 +36,72 @@
           </div>
         </div>
         <div class="box-body">
-          Start creating your amazing application!
+            <div class="box-body">
+                <div class="box">
+                    <div class="box-header">
+                      <h3 class="box-title">Data Table With Full Features</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                      <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th>Title</th>
+                          <th>Slug</th>
+                          <th>Create At</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+          @foreach ($posts as $post)     
+                       <tr>
+                          <td>{{$loop->index + 1 }}</td>
+                          <td>{{$post->title}}</td>
+                       <td>{{$post->slug}}</td>
+                       <td>{{$post->created_at}}</td>
+                       <td><a href="{{route('post.edit',$post->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                          <td>
+
+                          <form id="delete-form-{{$post->id}}" method="post" action="{{route('post.destroy',$post->id)}}" style="display:none">
+                             {{csrf_field()}}
+                           {{method_field('DELETE')}}   
+                          </form>
+                        <a 
+                        href="{{route('post.index')}}" onclick="
+                        if(confirm('Etes Vous sure de vouloir supprimer ???'))
+                        {
+                          event.preventDefault();
+                        document.getElementById('delete-form-{{$post->id}}').submit();
+                        }
+                        else{
+                          event.preventDefault();
+                          }
+                        "><span class="glyphicon glyphicon-trash"></span></a>
+
+                          </td>
+                        </tr>
+                        
+          @endforeach
+                      
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Title</th>
+                            <th>Slug</th>
+                            <th>Create At</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+            </div>
+            <!-- /.box-body -->
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
@@ -45,3 +114,14 @@
     </section>
     </div>
 @endsection 
+@section('footerSection')
+<script src="{{asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{URL::asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+  
+  <script>
+    $(function () {
+      $('#example1').DataTable()
+    
+    })
+  </script>
+@endsection

@@ -15,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.show');
+        $posts = Post::all();
+        return view('admin.post.show',compact("posts"));
     }
 
     /**
@@ -63,7 +64,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return post;
+        // return post;
     }
 
     /**
@@ -74,8 +75,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+       $post= Post::where('id',$id)->first();
+        return view('admin.post.edit',compact('post'));
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -86,7 +88,24 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            'title'=>'required',
+            'body'=>'required',
+            'slug'=>'required',
+            
+             ]);  
+             $post = Post::find($id);
+          
+                $post->title=request('title');
+                 $post->content=request('body');
+                //  $post->user_id=auth()->id();
+                 $post->slug=request('slug');
+             $post->save();
+               
+             return redirect (route('post.index'));
+                  
+                //  return view('admin.post.show');
+        
     }
 
     /**
@@ -97,7 +116,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::where('id',$id)->delete();
+        return redirect()->back();
     }
 }
 

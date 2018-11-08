@@ -4,6 +4,7 @@
     </div>
     <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.
+   
   </footer>
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
@@ -234,8 +235,11 @@
 <!-- AdminLTE App -->
 <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
+{{-- <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script> --}}
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('admin/dist/js/demo.js')}}"></script>
+{{-- <script src="{{asset('admin/dist/js/demo.js')}}"></script> --}}
+@section('footerSection')
+    
+@show 
 </body>
 </html>
